@@ -26,7 +26,7 @@ class Fofa:
     
     def search(self, query_str: str, page=1, fields='') -> dict:
         api_full_url = '%s%s' % (self.base_api, self.search_api)
-        param = {'qbase64': base64.b64encode(query_str.encode()), 'email': self.email, 'key': self.key, 'page': page, 'fields': fields}
+        param = {'qbase64': base64.b64encode(query_str.encode()).decode(), 'email': self.email, 'key': self.key, 'page': page, 'fields': fields}
         res = self.__http_get(api_full_url, param)
         return json.loads(res)
     
