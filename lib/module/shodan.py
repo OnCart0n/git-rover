@@ -7,9 +7,12 @@
 
 import json
 import requests
+import shodan
 
 
 class Shodan:
+    SHODAN_API_KEY = 'insert your key here'
+    api = shodan.Shodan(SHODAN_API_KEY)
     pass
 
 
