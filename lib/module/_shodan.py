@@ -5,17 +5,25 @@
 '''
 
 
+import sys
 import json
 import requests
 import shodan
 
-class Shodan:
-    SHODAN_API_KEY = 'bW1pCgTLKMVV7f1bfxng9cfCKvWcwnTG'
+class ShodanPro:
+    def __init__(self, key: str) -> None:
+        self._api = shodan.Shodan(key)
+    
+    def search(self, query: str):
+        return self._api.search(query)
+
+
+if __name__ == "__main__":
     if len(sys.argv) == 1:
         print('Usage: %s <search query>' % sys.argv[0])
         sys.exit(1)
     try:
-        api = shodan.Shodan(SHODAN_API_KEY)
+        api = ShodanPro('bW1pCgTLKMVV7f1bfxng9cfCKvWcwnTG')
         query = ''.join(sys.argv[1:])
         result = api.search(query)
         for service in result['matches']:
@@ -23,8 +31,3 @@ class Shodan:
     except Exception as e:
         print('Error: %s' % e)
         sys.exit(1)
-    pass
-
-
-if __name__ == "__main__":
-    shodan = Shodan()
