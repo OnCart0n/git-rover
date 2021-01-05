@@ -11,7 +11,7 @@ import shodan
 import sys
 
 class Shodan:
-    SHODAN_API_KEY = 'bW1pCgTLKMVV7f1bfxng9cfCKvWcwnTG'
+    SHODAN_API_KEY = 'insert your api key'
     if len(sys.argv) == 1:
         print('Usage: %s <search query>' % sys.argv[0])
         sys.exit(1)
