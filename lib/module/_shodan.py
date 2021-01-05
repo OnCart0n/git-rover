@@ -6,8 +6,6 @@
 
 
 import sys
-import json
-import requests
 import shodan
 
 class ShodanPro:
