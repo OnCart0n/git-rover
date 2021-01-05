@@ -19,12 +19,12 @@ class ShodanPro:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print('Usage: %s <search query>' % sys.argv[0])
+    if len(sys.argv) < 3:
+        print('Usage: %s <shodan key> <search query>' % sys.argv[0])
         sys.exit(1)
     try:
-        api = ShodanPro('bW1pCgTLKMVV7f1bfxng9cfCKvWcwnTG')
-        query = ''.join(sys.argv[1:])
+        api = ShodanPro(sys.argv[1])
+        query = ''.join(sys.argv[2:])
         result = api.search(query)
         for service in result['matches']:
             print(service['ip_str'])
