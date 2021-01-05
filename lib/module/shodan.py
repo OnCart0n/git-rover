@@ -8,6 +8,7 @@
 import json
 import requests
 import shodan
+import sys
 
 class Shodan:
     SHODAN_API_KEY = 'bW1pCgTLKMVV7f1bfxng9cfCKvWcwnTG'
