@@ -30,8 +30,19 @@ class App(BaseConfig):
     name = str
 
 
+class Shodan(BaseConfig):
+    key = str
+
+
+class Fofa(BaseConfig):
+    email = str
+    key = str
+
+
 class Config:
     app = App()
+    shodan = Shodan()
+    fofa = Fofa()
 
 
 config = Config()
