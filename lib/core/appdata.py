@@ -1,8 +1,5 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
-'''
-@Author  :   OnCart0n
-'''
 
 
 from lib.core.config import config
