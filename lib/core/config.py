@@ -5,14 +5,12 @@ import configparser
 
 
 class BaseConfig:
-    config = configparser.ConfigParser()
-
     def __init__(self, config_file='config.ini'):
         try:
-            config.read(config_file)
+            self.config = configparser.ConfigParser()
+            self.config.read(config_file)
         except configparser.ParsingError as e:
-            print("请检查配置文件: ", repr(e).split('\n')[1].replace("\t", '').replace(' \\n', ''))
-            exit()
+            raise Exception("请检查配置文件: " + repr(e).split('\n')[1].replace("\t", '').replace('\\n', ''))
 
         for key in list(set(dir(self))-set(dir(BaseConfig))):
             t = getattr(self, key)
@@ -41,6 +39,3 @@ class Config:
     app = App()
     shodan = Shodan()
     fofa = Fofa()
-
-
-config = Config()
