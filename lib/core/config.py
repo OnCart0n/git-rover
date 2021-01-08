@@ -1,21 +1,19 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
+import configparser
 
-config_file = 'config.ini'
-from configparser import ParsingError
 
 class BaseConfig:
-    # 邪教写法
-    import configparser as _
-    config = _.ConfigParser()
-    try:
-        config.read(config_file)
-    except ParsingError as e:
-        print("请检查配置文件: ", repr(e).split('\n')[1].replace("\t", '').replace(' \\n', ''))
-        exit()
+    config = configparser.ConfigParser()
 
-    def __init__(self):
+    def __init__(self, config_file='config.ini'):
+        try:
+            config.read(config_file)
+        except configparser.ParsingError as e:
+            print("请检查配置文件: ", repr(e).split('\n')[1].replace("\t", '').replace(' \\n', ''))
+            exit()
+
         for key in list(set(dir(self))-set(dir(BaseConfig))):
             t = getattr(self, key)
             if t is int:
