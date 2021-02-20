@@ -1,9 +1,5 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
-'''
-@Author  :   OnCart0n
-'''
-
 
 import sys
 import shodan
