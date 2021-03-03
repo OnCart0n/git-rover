@@ -24,6 +24,7 @@ class BaseConfig:
 
 class App(BaseConfig):
     name = str
+    debug = bool
 
 
 class Shodan(BaseConfig):
