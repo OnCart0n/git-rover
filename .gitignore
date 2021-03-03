@@ -99,3 +99,8 @@ ENV/
 # mypy
 tests/
 config.ini
+
+# app
+lib/app/linux/*
+lib/app/windows/*
+!lib/app/**/.keep
