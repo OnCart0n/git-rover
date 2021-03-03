@@ -11,8 +11,10 @@ def create_app():
 
         # import Blueprint
         from web.api import api_home
+        from web.api import api_scan
 
         # register Blueprint
         app.register_blueprint(api_home, url_prefix='/')
+        app.register_blueprint(api_scan, url_prefix='/api/scan/')
 
         return app
